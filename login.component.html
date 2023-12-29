@@ -1,0 +1,56 @@
+<div class="login-container">
+    <form>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <div class="logo"><img src="assets/ardb-log-32x32 (1).svg" alt=""></div>
+                    <h1 class="title">Welcome</h1>
+                </mat-card-title>
+
+            </mat-card-header>
+
+            <div class="language">
+                <app-language-seletor></app-language-seletor>
+            </div>
+            <br>
+
+            <mat-form-field>
+                <mat-label class="fkh">{{ 'Username' }}
+                </mat-label>
+                <input type="text" class="fkh" matInput>
+                <a mat-icon-button matSuffix>
+                    <mat-icon>person</mat-icon>
+                </a>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label class="fkh">{{ 'Password' }}</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-card-actions>
+                <div class="forget">
+                    <mat-card-actions>
+                        <mat-checkbox>Remember me</mat-checkbox>
+                    </mat-card-actions>
+
+                    <mat-card-actions>
+                        <a routerLink="/forget-password" class="fkh">{{ 'forget-password' }}</a>
+                    </mat-card-actions>
+                </div>
+            </mat-card-actions>
+            <div color="success"></div>
+            <button ali mat-raised-button color="success">{{ 'Login' }}
+                <div *ngIf="loading" class="mat-spinner-loading">
+                </div>
+            </button>
+        </mat-card>
+    </form>
+
+</div>
+<mat-card-footer>
+    <img src="/assets/bg/Vectors.svg" alt="">
+</mat-card-footer>
